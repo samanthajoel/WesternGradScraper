@@ -32,13 +32,6 @@ print(f"Default Admit Term: {admit_term}")
 print(f"Default Program Filter: {program_filter}")
 print(f"Default Excel File: {excel_file}")
 
-###User Inputs##
-
-admit_term = input("Enter the admit term (e.g., 1258): ").strip()
-program_filter = input("Enter the program filter (e.g., 'cl', 'sp', 'cd'): ").strip()
-excel_file = input("Enter the Excel file name (e.g., SelectionWorksheet.xlsx): ").strip()
-
-
 ####Set the Default Download Directory####
 
 #Save the original working directory
@@ -245,7 +238,7 @@ def process_applicant(last_name):
 #Read the Excel file to get the list of last names###
 
 # Ensure the Excel file is read from the original directory
-excel_file = os.path.join(base_dir, "SelectionWorksheet.xlsx")
+excel_file = os.path.join(base_dir, excel_file)
 
 try:
     df = pd.read_excel(excel_file, engine='openpyxl')

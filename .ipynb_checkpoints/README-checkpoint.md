@@ -70,8 +70,8 @@ The script reads applicant last names from an Excel file (`Selection Worksheet.x
 3. Place the `chromedriver.exe` file in your project folder.
 
 
-### 6. Update Configuration File
-Update `config.ini` with your preferred settings for the term, program, and excel file name:
+### 6. Update Configuration File (Optional)
+The script will prompt you to change these default settings. Alternatively, you can update `config.ini` with your preferred settings:
 
 ```ini
 [DEFAULT]
@@ -83,13 +83,21 @@ excel_file = SelectionWorksheet.xlsx
 
 ## **How to Use WesternGradScraper**
 
-## **Run the Script**  
+1. **Run the Script**  
    Open a terminal, navigate to the project folder, and run:
    ```bash
    python main.py
    ```
 
-## **What Happens**:
+2. **User Inputs**
+   The script will prompt you for:
+   - Admit term
+   - Program filter (e.g., 'cl', 'sp', 'cd', 'io')
+   - Excel file name
+   Leave these blank and press the enter key to use the default options from the configuration file.
+
+
+3. **What Happens**:
    - An Applicants directory is generated inside your project folder.
    - The script logs into the Western University portal using your credentials.
    - The script searches for each applicant based on last names and program filters.
