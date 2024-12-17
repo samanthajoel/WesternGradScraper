@@ -1,13 +1,13 @@
 # WesternGradScraper
 
-This app automates the process of logging into Western University's student portal, 
+This script automates the process of logging into Western University's student portal, 
 searching for graduate school applications, and downloading applicant materials 
 based on a list of last names provided in an Excel file.
 
 ---
 
 ## **Features**
-- Creates an "Applicants" folder in your project folder.
+- Creates an "Applicants" directory in your project folder.
 - Logs into PeopleSoft using your credentials provided in a .env file.
 - Automatically searches for applications based on last names and program filters.
 - Downloads and renames applicant materials (PDF files) by last name.
@@ -24,12 +24,13 @@ Ensure the following are installed on your system:
 Install the required Python libraries:
 ```bash
 pip install pandas openpyxl selenium python-dotenv
+```
 
 ---
-
 ### 2. Folder Setup
 Organize your project folder like this:
-```
+
+```plaintext
 WesternGradScraper/
 │
 ├── main.py           		# Your Python script
@@ -54,7 +55,7 @@ PASSWORD=your_password
 In the project folder, include an excel file with a list of the applicants who you would like to evaluate. 
 
 ## **Example Excel File Format**
-The script reads applicant last names from an Excel file (`Selection Worksheet 2025-26.xlsx`). Ensure the file has the following column:
+The script reads applicant last names from an Excel file (`Selection Worksheet.xlsx`). Ensure the file has a "Last Name" column:
 
 | Last Name  |
 |------------|
@@ -70,16 +71,17 @@ The script reads applicant last names from an Excel file (`Selection Worksheet 2
 
 
 ### 6. Update Configuration File (Optional)
-Update `config.ini` with your default settings:
+The script will prompt you to change these default settings. Alternatively, you can update `config.ini` with your preferred settings:
+
 ```ini
 [DEFAULT]
 admit_term = 1258
 program_filter = cl
 excel_file = SelectionWorksheet.xlsx
----
+```
 
 
-## **How to Run the Script**
+## **How to Use WesternGradScraper**
 
 1. **Run the Script**  
    Open a terminal, navigate to the project folder, and run:
@@ -88,23 +90,19 @@ excel_file = SelectionWorksheet.xlsx
    ```
 
 2. **User Inputs**
-The script will prompt you for:
-- Admit term
-- Program filter (e.g., 'cl', 'sp', 'cd', 'io')
-- Excel file name
+   The script will prompt you for:
+   - Admit term
+   - Program filter (e.g., 'cl', 'sp', 'cd', 'io')
+   - Excel file name
+   Leave these blank and press the enter key to use the default options from the configuration file.
 
-If you leave these blank, it will use the defaults from the configuration file.
 
 3. **What Happens**:
-   - The script logs into the Western University portal.
-   - It searches for applications based on last names and program filters.
-   - Applicant materials are downloaded, renamed, and saved to your working folder.
+   - An Applicants directory is generated inside your project folder.
+   - The script logs into the Western University portal using your credentials.
+   - The script searches for each applicant based on last names and program filters.
+   - Applicant materials are downloaded, renamed, and saved within the Applicants directory.
 
----
-## Default Working Directory
-The script generates an `Applicants` folder inside the project directory where it save the files.  
-
----
 
 ## **Dependencies**
 The script requires the following libraries:
@@ -123,16 +121,15 @@ pip install -r requirements.txt
 ## **Expected Output**
 The script outputs messages to the terminal, such as:
 ```
-Processing applicant: Smith
 Logged in successfully!
-First result selected.
+Successfully started processing for: Smith
 Renamed file to: Smith.pdf
-Processing applicant: Johnson
+Successfully started processing for: Johnson
 ...
 All applicants processed.
 ```
 
-The downloaded PDFs are renamed and saved to the working directory.
+The downloaded PDFs are renamed and saved to the Applicants folder.
 
 ---
 
